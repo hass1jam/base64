@@ -24,5 +24,29 @@ namespace Base64
         {
             InitializeComponent();
         }
+
+        private void EncodeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var bytes = System.Text.Encoding.UTF8.GetBytes(txt1.Text);
+            txt2.Text = Convert.ToBase64String(bytes);
+        }
+
+        private void DecodeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var bytes = Convert.FromBase64String(txt1.Text);
+            txt2.Text = System.Text.Encoding.UTF8.GetString(bytes);
+        }
+
+        private void pasteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            txt1.Text = "";
+            txt1.Text = Clipboard.GetText();
+        }
+
+        private void copyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(txt2.Text);
+            txt2.Text = "";
+        }
     }
 }

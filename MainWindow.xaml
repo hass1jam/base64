@@ -1,12 +1,80 @@
 ﻿<Window x:Class="Base64.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Base64"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Base64"
+    Title="MainWindow"
+    Width="800"
+    Height="450">
+    <Grid x:Name="grid1"
+        Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="60" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Width="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ActualWidth}"
+            HorizontalAlignment="Center"
+            FontSize="19"
+            FontWeight="Bold"
+            Text="Base64 Encode/Decoder"
+            TextAlignment="Center" />
+
+        <TextBox
+            Name="txt1"
+            Grid.Row="1"
+            Grid.Column="0"
+            MaxLines="100" />
+        <Button
+            Name="pasteBtn"
+            Grid.Row="1"
+            Grid.Column="1"
+            Click="pasteBtn_Click"
+            Content="Paste" />
+
+        <Label
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="0,20,0,0"
+            Content="Output"
+            FontSize="15"
+            FontWeight="Bold" />
+
+        <TextBox
+            Name="txt2"
+            Grid.Row="3"
+            MaxLines="100" />
+        <Button
+            Name="copyBtn"
+            Grid.Row="3"
+            Grid.Column="1"
+            Click="copyBtn_Click"
+            Content="Copy" />
+
+        <StackPanel
+            Grid.Row="4"
+            FlowDirection="RightToLeft"
+            Orientation="Horizontal">
+            <Button
+                Name="DecodeBtn"
+                Width="100"
+                Margin="5"
+                Click="DecodeBtn_Click"
+                Content="Decode" />
+            <Button
+                Name="EncodeBtn"
+                Width="100"
+                Margin="5"
+                Click="EncodeBtn_Click"
+                Content="Encode" />
+        </StackPanel>
     </Grid>
 </Window>

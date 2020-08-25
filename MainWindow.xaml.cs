@@ -27,14 +27,29 @@ namespace Base64
 
         private void EncodeBtn_Click(object sender, RoutedEventArgs e)
         {
-            var bytes = System.Text.Encoding.UTF8.GetBytes(txt1.Text);
-            txt2.Text = Convert.ToBase64String(bytes);
+            try
+            {
+                var bytes = System.Text.Encoding.UTF8.GetBytes(txt1.Text);
+                txt2.Text = Convert.ToBase64String(bytes);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void DecodeBtn_Click(object sender, RoutedEventArgs e)
         {
-            var bytes = Convert.FromBase64String(txt1.Text);
-            txt2.Text = System.Text.Encoding.UTF8.GetString(bytes);
+            try
+            {
+                var bytes = Convert.FromBase64String(txt1.Text);
+                txt2.Text = System.Text.Encoding.UTF8.GetString(bytes);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void pasteBtn_Click(object sender, RoutedEventArgs e)
